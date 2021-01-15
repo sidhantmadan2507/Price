@@ -9,23 +9,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var finalvaluelbl: UILabel!
-    @IBOutlet weak var Taxtxt: UITextField!
+    @IBOutlet weak var finalValueLabel: UILabel!
+    @IBOutlet weak var taxTextField: UITextField!
     //label
-    @IBOutlet weak var Pricetxt: UITextField!
+    @IBOutlet weak var priceTextField: UITextField!
     //pricetextfield
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        finalvaluelbl.text = ""
+        finalValueLabel.text = ""
     }
 
-    @IBAction func Calculatetotalprice(_ sender: Any) {
-        let price = Double(Pricetxt.text!)!
-        let tax = Double(Taxtxt.text!)!
+    @IBAction func calculateTotalPrice(_ sender: Any) {
+        view.endEditing(true)
+        let price = Double(priceTextField.text!)!
+        let tax = Double(taxTextField.text!)!
         let finalTax = price * tax
         let finalAmount = price + finalTax
-        finalvaluelbl.text = "Rs \(finalAmount)"
+        finalValueLabel.text = "Rs \(finalAmount)"
     }
     
 }
